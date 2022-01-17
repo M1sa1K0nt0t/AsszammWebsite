@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Nota Hidup Website | Vanilla Javascript</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,5e0,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+	scroll-behaviour: smooth;
+}
+body
+{
+    min-height: 100vh;
+	overflow-x: hidden;
+    background: linear-gradient(#ccccff,#ffd6b3);
+}
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+	z-index: 10000;
+}
+header .logo
+{
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    Letter-spacing: 2px;
+}
+header ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul li
+{
+    list-style: none;
+    margin-left: 20px;
+}
+header ul li a
+{
+    text-decoration: none;
+    padding: 6px 15px;  
+    color: #fff;
+border-radius: 20px;
+}
+header ul li a:hover,
+header ul li a.active
+{
+  background: #000000;
+  color:  #ccccff;
+}
+section
+{
+  position: relative;
+  width: 100%;
+  height: 135vh;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section::before
+{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top,#E9967A,transparent);
+  z-index: 1000;
+}
+section img
+{
+  position: absolute;
+  top: 0;
+  Left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events:none;
+}
+section img#moon
+{
+  mix-blend-mode: screen;
+}
+section img#mountains_front
+{
+  z-index: 10;
+}
+#text
+{
+  position: absolute;
+  right: -350px;
+  color: #fff;
+  white-space:nowrap;
+  font-size:4.75vw;
+  z-index: 9;
+}
+#btn
+{
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 30px;
+  border-radius: 40px;
+  background: #000000;
+  color: #ffd6b3;
+  font-size: 1.5em;
+  z-index: 9;
+  transform: translateY(100px);
+}
+.sec
+{
+  position: relative;
+  padding: 100px;
+  background: #ffd6b3;
+}
+.sec h3
+{
+  font-size:3.5em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.sec p
+{
+  font-size: 1em;
+  color: #000000;
+}
+  
+</style>
+    <body>
+        <header>
+            <a href="#" class="logo">Nota Hidup</a>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Experience</a></li>
+                <li><a href="#">Education</a></li>
+                <li><a href="#">Relationship</a></li>
+                <li><a href="#">Gallery</a></li>
+            </ul>
+        </header>
+        <section>
+          <img src="stars.jpg" id="stars">
+          <img src="moon.jpg" id="moon">
+          <img src="mountains_behind.jpg" id="mountains_behind">
+		  <h3 id="text">Let's Start Our Journey</h3>
+		  <a href="#sec" id="btn">Explore</a>
+          <img src="mountains_front.jpg" id="mountains_front">
+        </section>
+		<div class="sec" id="sec">
+		  <h3>Welcome To My Nota Hidup</h3>
+		  <p>Literally This is my first time doing this shit and im so fucking proud with myself cuz I finally doing this fawking awesome masterpiece of art
+		  and just wanna say, Enjoy your Fucking life while you can and dont give a damn shit on toxic people cuz they are asshole.
+		  They bark a lot like fucking dog with rabies. Ciao.<br><br>Literally This is my first time doing this shit and im so fucking proud with myself cuz I finally doing this fawking awesome masterpiece of art
+		  and just wanna say, Enjoy your Fucking life while you can and dont give a damn shit on toxic people cuz they are asshole.
+		  They bark a lot like fucking dog with rabies. Ciao </p>
+		</div>
+		
+		<script>
+		  Let stars = document.getELementbyId('stars');
+		  Let moon = document.getELementbyId('moon');
+		  Let mountains_behind = document.getELementbyId('mountains_behind')
+		  Let text = document.getELementbyId('text');
+		  Let btn = document.getELementbyId('btn');
+		  Let mountains_front = document.getELementbyId('mountains_front');
+		  Let header = document.querySelector('scroll',function(){
+		  window.addEventListener('scroll', function(){
+		    Let value = window.scrollY;
+			stars.style.left = value * 0.25 + 'px';
+			moon.style.top = value * 1.05 + 'px';
+			mountains_behind.style.top = value * 0.5 + 'px;
+			mountains_front.style.top = value * 0 + 'px';
+			text.style.margin.Right = value * 4 + 'px';	
+			text.style.marginTop = value * 1.5 + 'px';
+			btn.style.marginTop = value * 1.5 + 'px';
+		 })
+		</script>
+    </body>
+</html>
